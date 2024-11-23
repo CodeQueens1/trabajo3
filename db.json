@@ -1,0 +1,31 @@
+{
+  "posts": [
+    {
+      "id": "3deb",
+      "correo": "",
+      "nombre": "",
+      "apellido": "",
+      "titulo": "¿Cómo marcar asistencia en esta app?",
+      "contenido": "Hola, compañeros. Soy nueva en la app y no estoy segura de cómo marcar mi asistencia. ¿Alguien podría explicarme cómo funciona? ¡Gracias!",
+      "usuario": "Ana Torres"
+    },
+    {
+      "id": "efea",
+      "correo": "",
+      "nombre": "",
+      "apellido": "",
+      "titulo": "¡Recomendación de la app para otros estudiantes!",
+      "contenido": "Solo quería decir que esta app es súper útil. Antes se me olvidaba marcar asistencia y ahora es mucho más fácil. La recomiendo mucho para quienes tienen clases híbridas o siempre están con el celular.",
+      "usuario": "Ana Torres"
+    },
+    {
+      "id": "aa56",
+      "correo": "",
+      "nombre": "",
+      "apellido": "",
+      "titulo": "Duda sobre justificación de inasistencia",
+      "contenido": "¿Alguien sabe si desde la app se puede justificar una inasistencia? Falte la semana pasada por motivos médicos y quisiera saber si puedo adjuntar mi justificativo aquí.",
+      "usuario": "Ana Torres"
+    }
+  ]
+}

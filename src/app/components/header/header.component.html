@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      <img src="assets/images/logo_white_duoc.png" alt="DuocUC Logo" style="height: 60px; vertical-align: middle;">
+       {{ 'AppName' | translate }} 
+    </ion-title>
+    <div slot="end">
+      <ion-button fill="clear" size="large" icon-only (click)="logout()">
+        <ion-icon name="log-out-outline" color="light"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>

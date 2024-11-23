@@ -1,0 +1,20 @@
+
+<app-header>
+</app-header>
+
+<ion-content [fullscreen]="true">
+
+  <app-codigoqr *ngIf="componenteSeleccionado === 'codigoqr' "
+  (scanned)="webQrScanned($event)"
+  (stopped)="webQrStopped()">
+  </app-codigoqr >
+
+  <app-miclase *ngIf="componenteSeleccionado === 'miclase'"></app-miclase>
+  <app-foro *ngIf="componenteSeleccionado === 'foro'"></app-foro>
+  <app-misdatos *ngIf="componenteSeleccionado === 'misdatos'"></app-misdatos>
+
+</ion-content>
+
+
+
+<app-footer></app-footer>

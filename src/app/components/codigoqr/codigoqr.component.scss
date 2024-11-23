@@ -1,0 +1,27 @@
+.video-container {
+  display: flex;
+  flex-direction: column;  /* Alinea los elementos en columna */
+  justify-content: center;  /* Centra verticalmente */
+  align-items: center;      /* Centra horizontalmente */
+  margin-top: 20px;        /* Espaciado superior */
+}
+video {
+  width: 100%;             /* Asegúrate de que el video ocupe el 100% del ancho del contenedor */
+  max-width: 600px;       /* Tamaño máximo del video */
+  height: auto;           /* Mantener la relación de aspecto */
+  border: 2px solid #ccc; /* Agrega un borde para mejorar la visibilidad */
+  border-radius: 8px;     /* Bordes redondeados */
+}
+
+.status-message {
+  margin-top: 10px;       /* Espaciado superior para el mensaje de estado */
+}
+
+ion-button {
+  width: 100%;            /* Los botones ocupan el 100% del contenedor */
+    /* Asegúrate de que los botones no excedan el tamaño del video */
+  --padding-start: 8px;  /* Ajusta el relleno izquierdo */
+  --padding-end: 8px;    /* Ajusta el relleno derecho */
+  margin: 10px 0;        /* Espaciado entre botones */
+
+}

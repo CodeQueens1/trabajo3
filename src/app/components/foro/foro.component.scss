@@ -1,0 +1,105 @@
+.foro-content {
+  --background: #f3f4f6;
+
+  .publicacion-form {
+    padding: 16px;
+    background-color: #ffffff;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    .centered-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  img {
+    height: 100px;
+    margin-right: 80px; // Ajusta el espacio entre la imagen y el texto
+  }
+
+  span {
+    font-size: 1rem; // Ajusta el tamaño de la fuente si es necesario
+  }
+}
+
+
+    h2 {
+      color: #1a1a1a;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    ion-button {
+      --border-radius: 4px;
+      --background: #ffb800;
+      color: white;
+      font-weight: bold;
+    }
+
+    ion-button[color="light"] {
+      --background: #eeeeee;
+      color: #1a1a1a;
+    }
+  }
+
+  .publicaciones-recientes {
+    padding: 16px;
+
+    h3 {
+      color: #1a1a1a;
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+
+    ion-card {
+      margin-bottom: 16px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+      ion-card-header {
+        background-color: #eeeeee;
+      }
+
+      ion-card-title {
+        color: #1a1a1a;
+        font-weight: bold;
+      }
+
+      ion-card-subtitle {
+        color: #666666;
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 8px;
+        margin-top: 8px;
+      }
+
+      ion-button[color="primary"] {
+        --background: #307fe2;
+      }
+
+      ion-button[color="danger"] {
+        --background: #d50032;
+      }
+    }
+  }
+
+  .cerrar-sesion {
+    margin: 20px;
+    --background: #d50032;
+    color: white;
+    font-weight: bold;
+    --border-radius: 4px;
+  }
+}

@@ -1,0 +1,58 @@
+<ion-content>
+  <!-- Formulario para crear una nueva publicación -->
+  <ion-card id="formulario">
+    <ion-card-header>
+      <ion-card-title>Ingresa tu publicación</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form (ngSubmit)="onSubmit()">
+        <ion-item>
+          <ion-label position="stacked">Título</ion-label>
+          <ion-input [(ngModel)]="nuevaPublicacion.titulo" name="titulo" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Contenido</ion-label>
+          <ion-textarea [(ngModel)]="nuevaPublicacion.contenido" name="contenido" required></ion-textarea>
+        </ion-item>
+
+        <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+          <ion-button expand="block" color="primary" type="submit" style="flex: 1; margin-right: 5px;">Guardar</ion-button>
+          <ion-button expand="block" color="light" (click)="limpiarFormulario()" style="flex: 1; margin-left: 5px;">Limpiar</ion-button>
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Lista de publicaciones recientes -->
+  <ion-list>
+    <ion-list-header>
+      <ion-label color="primary">Publicaciones recientes</ion-label>
+    </ion-list-header>
+
+    <!-- Publicaciones en orden inverso (más recientes primero) -->
+    <div *ngIf="publicaciones.length > 0; else noPublicaciones">
+      <ion-card *ngFor="let pub of publicaciones">
+        <ion-card-header>
+          <ion-card-subtitle>Publicación #{{ pub.id || 'Sin ID' }} - {{ pub.usuario || 'Anónimo' }}</ion-card-subtitle>
+          <ion-card-title>{{ pub.titulo }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>{{ pub.contenido }}</p>
+          <!-- Botones para editar y eliminar la publicación -->
+          <div style="display: flex; justify-content: space-between;">
+            <ion-button color="primary" (click)="editarPublicacion(pub)" style="flex: 1; margin-right: 5px;">Editar</ion-button>
+            <ion-button *ngIf="pub.id !== undefined" color="danger" (click)="eliminarPublicacion(pub.id)" style="flex: 1; margin-left: 5px;">Eliminar</ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <!-- Mensaje cuando no hay publicaciones -->
+    <ng-template #noPublicaciones>
+      <ion-item>
+        <ion-label>No hay publicaciones recientes</ion-label>
+      </ion-item>
+    </ng-template>
+  </ion-list>
+</ion-content>

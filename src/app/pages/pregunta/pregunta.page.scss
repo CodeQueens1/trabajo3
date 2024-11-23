@@ -1,0 +1,22 @@
+@media (max-width: 768px) {
+  ion-card {
+    margin: 8px;
+  }
+
+  ion-item {
+    max-width: 100%;
+  }
+
+  ion-button {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  ion-card {
+    max-width: 600px; /* Ajustar para pantallas grandes */
+    margin: auto;
+  }
+}
+
+

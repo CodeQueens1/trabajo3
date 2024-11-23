@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>incorrecto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Incorrecto</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <p>Ha ocurrido un error! Verifica ingresar correctamente los datos y vuelve a intentar.</p>
+  
+  <img src="https://img.freepik.com/fotos-premium/mujer-joven-estudiante-aislada-apuntando-lado-presentar-producto_1368-170064.jpg" class="foto">
+  
+  <div class="ion-text-center">
+    <ion-button (click)="navigateToLogin()"> {{ 'Login.Title.Login' | translate }}</ion-button>
+  </div>
+</ion-content>

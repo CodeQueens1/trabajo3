@@ -1,0 +1,24 @@
+<app-header></app-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card>
+    <img src="https://www.duoc.cl/wp-content/uploads/2023/05/Palacio-Eguiguren.png" style="width: 100%; height: auto;" />
+
+    <ion-card-content>
+      <ion-card-subtitle>Paso 1: Ingresa tu correo</ion-card-subtitle>
+
+      <ion-item>
+        <ion-label position="floating">Ingresa tu correo</ion-label>
+        <br>
+        <ion-input [(ngModel)]="correo" type="email" placeholder="correo@dominio.com"></ion-input>
+      </ion-item>
+
+      <div class="ion-text-center">
+        <ion-button expand="block" (click)="validarCorreo()" color="warning">Recuperar contraseña</ion-button>
+      </div>
+      <div class="ion-text-center">
+        <ion-button (click)="navigateToLogin()"> {{ 'Login.Title.Login' | translate }}</ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

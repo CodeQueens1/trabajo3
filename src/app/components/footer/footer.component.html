@@ -1,0 +1,31 @@
+<ion-footer>
+  <ion-toolbar>
+
+
+    <ion-segment value="codigoqr" 
+                 [(ngModel)]="componenteSeleccionado"  
+                 (ionChange)="cambiarComponente(componenteSeleccionado)">
+
+      <ion-segment-button value="codigoqr">
+        <img src="assets/icon/inicio.png" alt="Inicio" style="width: 24px; height: 24px;"> <!-- Asegúrate de que la ruta sea correcta -->
+        Inicio
+      </ion-segment-button>
+
+      <ion-segment-button value="miclase">
+        <img src="assets/icon/MiClase.png" alt="Mi clase" style="width: 24px; height: 24px;">
+        Mi clase
+      </ion-segment-button>
+
+      <ion-segment-button value="foro">
+        <img src="assets/icon/foro.png" alt="Foro" style="width: 24px; height: 24px;">
+        Foro
+      </ion-segment-button>
+
+      <ion-segment-button value="misdatos">
+        <img src="assets/icon/datos.png" alt="Mis datos" style="width: 24px; height: 24px;">
+        Mis datos
+      </ion-segment-button>
+
+    </ion-segment>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,118 @@
+<ion-app>
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Mis Datos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="book">
+    <ion-content [fullscreen]="true" class="ion-padding-horizontal page">
+      <ion-toolbar>
+        <h4 class="ion-text-center">Mis Datos Personales</h4>
+      </ion-toolbar>
+
+      <!-- Campo: Cuenta -->
+      <ion-item>
+        <ion-input
+          [(ngModel)]="usuario.cuenta"
+          label="Cuenta"
+          labelPlacement="floating"
+          readonly
+          placeholder="Ej: atorres"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Campo: Nombre -->
+      <ion-item>
+        <ion-input
+          [(ngModel)]="usuario.nombre"
+          label="Nombre"
+          labelPlacement="floating"
+          placeholder="Ej: Ana"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Campo: Apellido -->
+      <ion-item>
+        <ion-input
+          [(ngModel)]="usuario.apellido"
+          label="Apellido"
+          labelPlacement="floating"
+          placeholder="Ej: Torres"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Campo: Dirección -->
+      <ion-item>
+        <ion-input
+          [(ngModel)]="usuario.direccion"
+          label="Dirección"
+          labelPlacement="floating"
+          placeholder="Ej: Av. Providencia 123"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Campo: Pregunta Secreta -->
+      <ion-item>
+        <ion-input
+          [(ngModel)]="usuario.preguntaSecreta"
+          label="Pregunta Secreta"
+          labelPlacement="floating"
+          placeholder="Ej: ¿Cuál es tu animal favorito?"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Campo: Respuesta Secreta -->
+      <ion-item>
+        <ion-input
+          [(ngModel)]="usuario.respuestaSecreta"
+          label="Respuesta Secreta"
+          labelPlacement="floating"
+          placeholder="Ej: Gato"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Campo: Educación -->
+      <ion-item>
+        <ion-label position="floating">Educación</ion-label>
+        <ion-select
+          [(ngModel)]="usuario.nivelEducacional.id"
+          placeholder="Seleccione nivel"
+          (ngModelChange)="onNivelEducacionalChange($event)"
+        >
+          <ion-select-option
+            *ngFor="let nivel of listaNivelesEducacionales"
+            [value]="nivel.id"
+          >
+            {{ nivel.nombre }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- Campo: Fecha de Nacimiento -->
+      <ion-item>
+        <ion-label position="floating">Fecha de Nacimiento</ion-label>
+        <ion-datetime
+          [(ngModel)]="usuario.fechaNacimiento"
+          presentation="date"
+          placeholder="Seleccione fecha"
+        ></ion-datetime>
+      </ion-item>
+
+      <!-- Campo: Contraseña -->
+      <ion-item>
+        <ion-input
+          [(ngModel)]="usuario.password"
+          label="Contraseña"
+          labelPlacement="floating"
+          type="password"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Botón: Actualizar Usuario -->
+      <ion-button expand="full" (click)="actualizarUsuario()">Actualizar Usuario</ion-button>
+    </ion-content>
+  </div>
+</ion-app>

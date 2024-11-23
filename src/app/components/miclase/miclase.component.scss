@@ -1,0 +1,40 @@
+/* Estilo para la tarjeta */
+ion-card {
+  max-width: 800px; /* Puedes ajustar el tamaño máximo de la tarjeta */
+  margin: 0 auto; /* Centra la tarjeta en la pantalla */
+}
+
+/* Estilo para la tabla */
+table {
+  width: 100%; /* Asegura que la tabla ocupe todo el ancho disponible */
+  border-collapse: collapse; /* Elimina el espacio entre las celdas */
+  margin-top: 20px; /* Separación superior */
+}
+
+/* Estilo para las celdas de la tabla */
+td {
+  padding: 12px 15px; /* Añade espacio dentro de las celdas */
+  text-align: left; /* Alinea el texto a la izquierda */
+  vertical-align: middle; /* Alinea el texto verticalmente al centro */
+  border-bottom: 1px solid #ddd; /* Añade una línea de separación entre filas */
+}
+
+/* Estilo para los encabezados de la tabla */
+th {
+  padding: 12px 15px;
+  background-color: #f4f4f4; /* Color de fondo para los encabezados */
+  text-align: left; /* Alinea el texto a la izquierda */
+  font-weight: bold; /* Negrita en los encabezados */
+  border-bottom: 2px solid #ddd; /* Línea más gruesa entre encabezados y datos */
+}
+
+/* Estilo para la fila de la tabla cuando se pasa el ratón por encima */
+tr:hover {
+  background-color: #f9f9f9; /* Cambia el color de fondo al pasar el ratón */
+}
+
+/* Estilo general para el contenedor de la tabla */
+ion-card-content {
+  padding: 20px;
+  text-align: center; /* Centra el texto en la tarjeta */
+}

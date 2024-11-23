@@ -1,0 +1,59 @@
+<ion-card>
+  <ion-card-content class="borde">
+    <h1 *ngIf="!miclase">
+      Asistencia sin información
+    </h1> 
+    <ion-card *ngIf="miclase"> 
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">Datos de la Asignatura:</ion-card-title>
+        <br>
+      </ion-card-header>
+      <ion-card-content>
+        <table>
+          <thead>
+            <tr>
+              <th>Sede</th>
+              <th>{{ miclase.sede }}</th>
+            </tr>
+            <tr>
+              <th>ID Asignatura</th>
+              <th>{{ miclase.idAsignatura }}</th>
+            </tr>
+            <tr>
+              <th>Sección</th>
+              <th>{{ miclase.seccion }}</th>
+            </tr>
+            <tr>
+              <th>Nombre Asignatura</th>
+              <th>{{ miclase.nombreAsignatura }}</th>
+            </tr>
+            <tr>
+              <th>Nombre Profesor</th>
+              <th>{{ miclase.nombreProfesor }}</th>
+            </tr>
+            <tr>
+              <th>Día</th>
+              <th>{{ miclase.dia }}</th>
+            </tr>
+            <tr>
+              <th>Bloque Inicio</th>
+              <th>{{ miclase.bloqueInicio }}</th>
+            </tr>
+            <tr>
+              <th>Bloque Término</th>
+              <th>{{ miclase.bloqueTermino }}</th>
+            </tr>
+            <tr>
+              <th>Hora Inicio</th>
+              <th>{{ miclase.horaInicio }}</th>
+            </tr>
+            <tr>
+              <th>Hora Fin</th>
+              <th>{{ miclase.horaFin }}</th>
+            </tr>
+          </thead>
+        </table>
+      </ion-card-content>
+    </ion-card> 
+  </ion-card-content>
+</ion-card>

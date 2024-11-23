@@ -1,0 +1,28 @@
+<app-header></app-header>
+
+<ion-card>
+  <img src="https://www.duoc.cl/wp-content/uploads/2023/05/Palacio-Eguiguren.png" style="width: 100%; height: auto;" />
+
+  <ion-card-content>
+    <ion-card-subtitle>Paso 2: Responde la pregunta secreta</ion-card-subtitle>
+
+    <!-- Mostrar la pregunta secreta -->
+    <ion-item>
+      <ion-label position="floating">
+        {{ usuario.preguntaSecreta || 'No se encontró una pregunta secreta' }}
+      </ion-label>
+      <ion-input 
+        [(ngModel)]="respuesta" 
+        type="text" 
+        placeholder="Escribe aquí tu respuesta">
+      </ion-input>
+    </ion-item>
+
+    <!-- Botón para recuperar contraseña -->
+    <div class="ion-text-center">
+      <ion-button expand="block" color="warning" (click)="validarRespuestaSecreta()">
+        Recuperar contraseña
+      </ion-button>
+    </div>
+  </ion-card-content>
+</ion-card>

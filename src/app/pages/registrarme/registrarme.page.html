@@ -1,0 +1,87 @@
+
+
+<ion-content [fullscreen]="true">
+ 
+  <ion-toolbar>
+    <h4 class="ion-text-center">Registro de usuario </h4>
+  </ion-toolbar>
+
+  <ion-list>
+    <ion-item #itemCuenta>
+      <ion-input [(ngModel)]="usuario.cuenta" label="Cuenta" labelPlacement="floating" placeholder="Ej: atorres"></ion-input>
+    </ion-item>
+  
+    <ion-item #itemNombre>
+      <ion-input [(ngModel)]="usuario.nombre" label="Nombre" labelPlacement="floating" placeholder="Ej: Ana"></ion-input>
+    </ion-item>
+  
+    <ion-item #itemApellido>
+      <ion-input [(ngModel)]="usuario.apellido" label="Apellido" labelPlacement="floating" placeholder="Ej: Torres"></ion-input>
+    </ion-item>
+  
+    <ion-item #itemCorreo>
+      <ion-input [(ngModel)]="usuario.correo" label="Correo" labelPlacement="floating" placeholder="Ej: Torres"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-input label="Dirección" labelPlacement="floating" value="Av. Providencia 123" readonly></ion-input>
+    </ion-item>
+    
+     
+  
+    <ion-item #itemPreguntaSecreta>
+      <ion-input [(ngModel)]="usuario.preguntaSecreta" label="Pregunta Secreta" labelPlacement="floating" placeholder="Ej: Torres"></ion-input>
+    </ion-item>
+  
+    <ion-item #itemPreguntaSecreta>
+      <ion-input [(ngModel)]="usuario.respuestaSecreta" label="Repuesta Secreta" labelPlacement="floating" placeholder="Ej: perro"></ion-input>
+    </ion-item>
+  
+    <ion-item #itemEducacion>
+      <ion-label position="floating" class="font-size-16">Educación</ion-label>
+      <ion-select placeholder="Seleccione nivel" [(ngModel)]="usuario.nivelEducacional!.id">
+        <ion-select-option *ngFor="let nivelEducacional of listaNivelesEducacionales" [value]="nivelEducacional.id">
+          {{nivelEducacional.nombre}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+      <ion-item #itemFechaNacimiento>
+      <table>
+        <tr>
+          <td class="font-size 12">Nacimiento</td>
+          <td class="cell-align-right">
+            <input matInput [matDatepicker]="fechaNacimiento" [(ngModel)]="usuario.fechaNacimiento" placeholder="ej: dd/mm/yyyy" class="date-width">
+          </td>
+          <td class="cell-width-0">
+            <mat-datepicker-toggle matSuffix [for]="fechaNacimiento"></mat-datepicker-toggle>
+            <mat-datepicker #fechaNacimiento></mat-datepicker>
+          </td>
+        </tr>
+      </table>
+    </ion-item> 
+  
+    <ion-item #itemContraseña>
+      <ion-input [(ngModel)]="usuario.password" label="Contraseña" labelPlacement="floating" type="password"></ion-input>
+    </ion-item>
+  
+      
+    <ion-item #itemRepetirContraseña>
+      <ion-input [(ngModel)]="usuario.password" label="Repetir Contraseña" labelPlacement="floating" type="password"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-card-content class="ion-text-center">
+    <div>
+      <ion-button shape="round" size="small" >
+        Crear mi nueva cuenta
+      </ion-button>
+    </div>
+    <div>
+      <a (click)="navegateIngreso()"> Iniciar Sesion</a>
+    </div>
+  </ion-card-content>
+
+
+</ion-content>

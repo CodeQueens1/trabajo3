@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar  class="transparent-bg">
+    <div slot="start" class="ion-margin">
+      <app-language #selectLanguage></app-language>
+    </div>
+    <div class="show-in-landscape">
+      <h1 color="white" class="ion-text-center margin-top-6" > {{ 'AppName' | translate }} </h1>
+    </div>
+    <div slot="end" class="ion-margin">
+      <ion-button shape="round" size="small" (click)="navigateTheme()">
+        Tema
+        <ion-icon slot="start" name="color-wand-outline"></ion-icon>
+      </ion-button>
+    </div>
+   </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  
+  
+  <h4>Iniciar Sesión</h4>
+
+  <ion-card class="transparent-input text-center">
+    <img src="https://www.duoc.cl/wp-content/uploads/2023/05/Palacio-Eguiguren.png"  />
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item >
+          <ion-input 
+            label="{{ 'Login.Label.Email' | translate }}" 
+            labelPlacement="floating"
+            [(ngModel)]="cuenta" 
+            placeholder="{{ 'Login.Placeholder.Email' | translate }}">
+          </ion-input>
+        </ion-item>
+    
+        <ion-item class="margin-bottom-6 float-right-landscape">
+          <ion-input 
+            label="{{ 'Login.Label.Password' | translate }}"
+            labelPlacement="floating"
+            [(ngModel)]="password" 
+            placeholder="{{ 'Login.Placeholder.Password' | translate }}"
+            type="password">
+          </ion-input>
+        </ion-item>
+    
+        <div class="ion-text-center margin-top-6" style="clear: both;">
+          <ion-button class="enter-button normal-text" shape="round" (click)="iniciarSesion()">
+            {{ 'Login.Button.Login' | translate }}
+          </ion-button>
+        </div>
+        
+      </ion-list>
+
+      <ion-card-content>
+        <div>
+          <a (click)="recuperarContrasena()"> {{ 'Login.Button.ForgotPassword' | translate }}</a>
+        </div>
+        <div>
+          <a (click)="navegateRegistrarme()"> Registrarse</a>
+        </div>
+      </ion-card-content>
+
+      <ion-button fill="clear" (click)="navigateToHome()">
+        <span style="color: blue; text-decoration: underline;">Mi ruta a DUOC</span>
+      </ion-button>
+      
+
+
+    </ion-card-content>
+
+   
+
+  </ion-card>
+
+  
+
+</ion-content>

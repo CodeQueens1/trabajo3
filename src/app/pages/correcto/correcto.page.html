@@ -1,0 +1,21 @@
+<app-header></app-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Correcto</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+      <ion-card-content>
+        <p class="text-center">Tu contraseña es {{usuario.password}}</p>
+      </ion-card-content>
+ 
+
+
+  <img src="https://img.freepik.com/fotos-premium/mujer-joven-estudiante-aislada-sobre-fondo-blanco-gesto-pulgar-arriba-sonriente_1368-183906.jpg" style="width: 100%; height: auto;">
+
+  <div class="ion-text-center">
+    <ion-button (click)="navigateToLogin()"> {{ 'Login.Title.Login' | translate }}</ion-button>
+  </div>
+</ion-content>

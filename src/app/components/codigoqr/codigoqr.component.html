@@ -1,0 +1,21 @@
+<ion-content class="ion-padding ion-text-center video-container">
+  
+  <div class="ion-text-center">
+    <h1> Bienvenido(a) </h1>
+    <h1> {{ usuario.nombre}} {{ usuario.apellido }} </h1>
+  </div>
+
+  <ion-button *ngIf="!escaneando" (click)="comenzarEscaneoQR()" expand="full" shape="round">
+    Comenzar Escaneo de QR
+  </ion-button>
+  
+  <ion-button *ngIf="escaneando" (click)="detenerEscaneoQr()" expand="full" shape="round">
+    Detener escaneo de QR
+  </ion-button>
+  
+  <video #video [hidden]="!escaneando" class="video"></video>
+  <canvas #canvas hidden></canvas>
+  <div *ngIf="escaneando" class="status-message">Escaneando, por favor coloca el código QR frente a la cámara.</div>
+</ion-content>
+
+
