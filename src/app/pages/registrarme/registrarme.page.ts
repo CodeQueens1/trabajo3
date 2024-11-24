@@ -10,33 +10,69 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { Router } from '@angular/router';
-
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-registrarme',
   templateUrl: './registrarme.page.html',
   styleUrls: ['./registrarme.page.scss'],
   standalone: true,
-  imports: [ CommonModule, FormsModule,
-    IonicModule, MatDatepickerModule, MatInputModule, MatFormFieldModule, MatNativeDateModule]
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+  ],
 })
 export class RegistrarmePage implements OnInit {
   public usuario: Usuario = new Usuario();
   public listaNivelesEducacionales = NivelEducacional.getNivelesEducacionales();
+  
+  // Propiedad para repetir la contraseña
+  public repetirPassword: string = '';
 
-  constructor(private authService:AuthService, private router: Router) {
-    this.authService.usuarioAutenticado.subscribe((usuarioAutenticado)=>{
-      if(usuarioAutenticado){
-        this.usuario = usuarioAutenticado;
-      }
+  constructor(
+    private authService: AuthService, 
+    private router: Router, 
+    private alertCtrl: AlertController
+  ) {}
+
+  ngOnInit() {}
+
+  async crearCuenta() {
+    // Validar que las contraseñas coincidan
+    if (this.usuario.password !== this.repetirPassword) {
+      const alert = await this.alertCtrl.create({
+        header: 'Error',
+        message: 'Las contraseñas no coinciden.',
+        buttons: ['OK'],
+      });
+      await alert.present();
+      return;
+    }
+
+    // Guardar el usuario usando el servicio AuthService
+    this.authService.guardarUsuarioAutenticado(this.usuario);
+
+    // Mostrar mensaje de éxito
+    const alert = await this.alertCtrl.create({
+      header: 'Éxito',
+      message: 'Cuenta creada exitosamente. Iniciando sesión...',
+      buttons: ['OK'],
     });
-   }
+    await alert.present();
 
-  ngOnInit() {
+    // Iniciar sesión automáticamente con la cuenta recién creada
+    await this.authService.login(this.usuario.cuenta, this.usuario.password);
+
+    // Redirigir al sistema (página principal)
+    this.router.navigate(['/inicio']);
   }
 
-  navegateIngreso(){
-    this.router.navigate(['/ingreso'])
+  navegateIngreso() {
+    this.router.navigate(['/ingreso']);
   }
-
 }

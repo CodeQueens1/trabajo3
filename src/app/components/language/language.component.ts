@@ -10,10 +10,10 @@ import { IonicModule } from '@ionic/angular';
   styleUrls: ['./language.component.scss'],
   standalone: true,
   imports: [
-      CommonModule    // CGV-Permite usar directivas comunes de Angular
-    , FormsModule     // CGV-Permite usar formularios
-    , IonicModule     // CGV-Permite usar componentes de Ionic como IonContent, IonItem, etc.
-    , TranslateModule // CGV-Permite usar pipe 'translate'
+    CommonModule,    // Permite usar directivas comunes de Angular
+    FormsModule,     // Permite usar formularios
+    IonicModule,     // Permite usar componentes de Ionic
+    TranslateModule  // Permite usar la canalización 'translate'
   ]
 })
 export class LanguageComponent {
@@ -23,16 +23,19 @@ export class LanguageComponent {
   languageSelected = "es";
 
   constructor(private translate: TranslateService) { 
-    this.translate.use('es');
+    const savedLanguage = localStorage.getItem('language') || 'es'; // Carga el idioma guardado o usa 'es' por defecto
+    this.translate.use(savedLanguage);
+    this.languageSelected = savedLanguage;
   }
 
   setCurrentLanguage() {
-    this.languageSelected = this.translate.currentLang;
+    this.languageSelected = this.translate.currentLang; // Sincroniza el idioma seleccionado con el actual
   }
 
   changeLanguage(value: string) {
     this.translate.use(value);
+    localStorage.setItem('language', value); // Guarda el idioma seleccionado
     this.changeCurrentLanguage.emit(value);
+    this.languageSelected = value; // Actualiza el idioma seleccionado localmente
   }
-
 }
