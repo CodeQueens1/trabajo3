@@ -18,17 +18,17 @@ export class UsuariosComponent implements OnInit {
 
   constructor(private dataBaseService: DataBaseService) {}
 
+  
   ngOnInit() {
     // Suscribirse a la lista de usuarios del servicio
     this.dataBaseService.listaUsuarios.subscribe((usuarios) => {
-      this.listaUsuarios = usuarios;
+      this.listaUsuarios = usuarios;  // Actualiza la lista cuando cambia
     });
 
     // Llamar a leerUsuarios para cargar los datos al iniciar el componente
     this.dataBaseService.leerUsuarios();
   }
 
-  // Método para eliminar un usuario por su cuenta
   eliminarUsuario(cuenta: string) {
     this.dataBaseService.eliminarUsuarioUsandoCuenta(cuenta);
   }

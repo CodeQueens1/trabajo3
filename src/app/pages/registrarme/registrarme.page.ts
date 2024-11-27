@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { DataBaseService } from 'src/app/services/data-base.service';
 
 @Component({
   selector: 'app-registrarme',
@@ -33,11 +34,13 @@ export class RegistrarmePage implements OnInit {
   
   // Propiedad para repetir la contraseña
   public repetirPassword: string = '';
+ 
 
   constructor(
     private authService: AuthService, 
     private router: Router, 
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private dataBaseService: DataBaseService
   ) {}
 
   ngOnInit() {}
@@ -55,7 +58,14 @@ export class RegistrarmePage implements OnInit {
     }
 
     // Guardar el usuario usando el servicio AuthService
-    this.authService.guardarUsuarioAutenticado(this.usuario);
+    //this.authService.guardarUsuarioAutenticado(this.usuario);
+
+     try {
+      await this.dataBaseService.guardarUsuario(this.usuario);  // Guarda el nuevo usuario
+      await this.dataBaseService.leerUsuarios();  // Actualiza la lista de usuarios
+    } catch (error) {
+      console.error('Error al guardar el usuario:', error);
+    }
 
     // Mostrar mensaje de éxito
     const alert = await this.alertCtrl.create({
