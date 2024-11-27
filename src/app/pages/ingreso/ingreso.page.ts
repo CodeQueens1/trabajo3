@@ -61,5 +61,9 @@ export class IngresoPage implements OnInit {
   navegateRegistrarme(){
     this.router.navigate(['/registrarme'])
   }
-
+  
+  navegateUsuarios(){
+    this.router.navigate(['/usuarios'])
+  }
+ 
 }

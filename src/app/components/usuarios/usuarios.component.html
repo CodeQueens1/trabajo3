@@ -1,3 +1,19 @@
-<p>
-  usuarios works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ADMINISTRAR USUARIOS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="usuario-container">
+    <div *ngFor="let usuario of listaUsuarios" class="usuario-card">
+      <div class="info-usuario">
+        <h3>{{ usuario.nombre }} {{ usuario.apellido }}</h3>
+        <p>{{ usuario.correo }}</p>
+      </div>
+      <ion-button color="danger" (click)="eliminarUsuario(usuario.cuenta)">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

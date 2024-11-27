@@ -1,0 +1,25 @@
+.usuario-container {
+  padding: 16px;
+}
+
+.usuario-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.info-usuario h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.info-usuario p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #666;
+}
