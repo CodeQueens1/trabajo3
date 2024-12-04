@@ -8,7 +8,7 @@ import jsQR, { QRCode } from 'jsqr';
 import { Usuario } from 'src/app/model/usuario';
 import { AuthService } from 'src/app/services/auth.service';
 import { TranslateModule } from '@ngx-translate/core';
-import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
+
 
 
 @Component({
@@ -53,27 +53,7 @@ export class CodigoqrComponent  implements OnDestroy {
   
 
   public async comenzarEscaneoQR() {
-    if (this.esDispositivoMovil()) {
-      try {
-        // Pedir permiso para usar la cámara
-        await BarcodeScanner.checkPermission({ force: true });
-        
-        // Ocultar la vista de la app para que se muestre la cámara
-        BarcodeScanner.hideBackground();
 
-        // Iniciar el escaneo
-        const qrData = await BarcodeScanner.startScan();
-        
-        if (qrData.hasContent) {
-          this.escaneando = false;
-          this.showasistenciaComponent(qrData.content);
-        }
-      } catch (error) {
-        console.error("Error al escanear QR", error);
-      } finally {
-        BarcodeScanner.showBackground();
-      }
-    } else {
       this.mediaStream = await navigator.mediaDevices.getUserMedia({
         video: {facingMode: 'environment'}
       });
@@ -83,7 +63,7 @@ export class CodigoqrComponent  implements OnDestroy {
       this.escaneando = true;
       requestAnimationFrame(this.verificarVideo.bind(this));
     }
-  }
+  
 
   async verificarVideo() {
     if (this.video.nativeElement.readyState === this.video.nativeElement.HAVE_ENOUGH_DATA) {

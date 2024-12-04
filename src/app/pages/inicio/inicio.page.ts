@@ -25,7 +25,7 @@ import { Asistencia } from 'src/app/model/asistencia';
     FormsModule, CodigoqrComponent, MiclaseComponent,
     ForoComponent,HeaderComponent,FooterComponent,MisdatosComponent]
 })
-export class InicioPage {
+export class InicioPage implements OnInit{
   @ViewChild(FooterComponent) footer!: FooterComponent;
   componenteSeleccionado = 'welcome';
 
@@ -36,13 +36,16 @@ export class InicioPage {
 
    
    }
+  ngOnInit(): void {
+    this.startQrScan();
+  }
 
    async startQrScan(){
-    if(Capacitor.getPlatform() === 'web') {
+    if(Capacitor.getPlatform() === 'web') 
       this.componenteSeleccionado = 'codigoqr';
-    }else{
-      this.showasistenciaComponent(await this.scanner.scan());
-    }
+
+      if(Capacitor.getPlatform() !== 'web')
+        this.showasistenciaComponent(await this.scanner.scan())   
    }
 
    webQrScanned(qr: string) {
