@@ -143,7 +143,7 @@ export class DataBaseService {
  
   async guardarUsuario(usuario: Usuario): Promise<void> {
     // Validación de datos antes de guardar
-    if (!usuario.cuenta || !usuario.correo || !usuario.password || !usuario.direccion || !usuario.nivelEducacional || !usuario.nivelEducacional.id) {
+    if (!usuario.cuenta || !usuario.correo || !usuario.password || !usuario.direccion || !usuario.nivelEducacional || !usuario.nivelEducacional.id||!usuario.direccion) {
       console.error('Datos incompletos para guardar el usuario:', usuario);
       throw new Error('Los datos del usuario son incompletos. Verifica los campos obligatorios.');
     }

@@ -59,6 +59,15 @@
     </ion-item>
 
     <ion-item>
+      <ion-input
+        [(ngModel)]="usuario.direccion"
+        label="direccion"
+        labelPlacement="floating"
+        placeholder="Ej: av. 1223"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
       <ion-label position="floating">Educación</ion-label>
       <ion-select
         placeholder="Seleccione nivel"
@@ -99,7 +108,8 @@
         type="password"
       ></ion-input>
     </ion-item>
-    
+
+
   </ion-list>
 
   <ion-card-content class="ion-text-center">
